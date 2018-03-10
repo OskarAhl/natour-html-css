@@ -14,19 +14,24 @@ Dark green: #28b485
 */
 
 /* Reset default browser CSS   */
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     /* borders and paddings are not added to width and height of box - 
     * i.e. padding does not cause width to increase
     */
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
 
 /* set rem in root (html) */
 html {
-    /* why 10px? 1 rem = 10px  */
-    font-size: 10px;
+    /* why 62.5%? default size is 16px 62.5 % of 16 is 10 =>  1 rem is now = 10px
+        - some user changes default font size (e.g. bad eyes)
+        ---> if you use px here instead of % the users default font size won't apply
+    */
+    font-size: 62.5%;
 }
 
 /* Why use body for global font ? 
@@ -38,6 +43,7 @@ body {
     line-height: 1.7;
     color: #777;
     padding: 3rem;
+    box-sizing: border-box;
 }
 
 .header {
