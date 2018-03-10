@@ -6,3 +6,138 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* Reset default browser CSS   */
+* {
+    margin: 0;
+    padding: 0;
+    /* borders and paddings are not added to width and height of box - 
+    * i.e. padding does not cause width to increase
+    */
+    box-sizing: border-box;
+}
+
+/* Why use body for global font ? 
+    fonts are inherited by ALL child elements of body
+ */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    /* this box - 95 % of viewport height */
+    height: 95vh;
+    /* 'two' background images - gradient first - then pic */
+    background-image: 
+        linear-gradient(
+        to right bottom, rgba(126, 213, 111, 0.8), 
+        rgba(40, 180, 131, 0.8)), 
+    url('../img/hero.jpg');
+    /* whatever width of viewport - always fit element of box */
+    background-size: cover;
+    /* 'top' of image always focused as we change screen size */
+    background-position: top;
+    position: relative;
+    /* clip out path where you want the element content to be visible
+        - i.e. 'make triangle at bottom' - set all 4 cordinates for element
+    */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    /* Top and left based on parent element - with position relative 
+        - on .header
+    */
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    /* old school centering */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #FFF;
+    text-transform: uppercase;
+    /* Fix animation 'shake' */
+    backface-visibility: hidden;
+}
+
+.heading-primary-main {
+    /* block occupies entire width + create line breaks */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+
+    /* animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; 
+     ==== Same as below
+    */
+    animation: moveInLeft 1s ease-out;
+    /* Sample animations properties */
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 3s; */
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+    /* Before animation starts */
+    0% {
+        opacity: 0;
+        /* X is horizontal - 'left -100px' */
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    /* Animation finished */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    /* Before animation starts */
+    0% {
+        opacity: 0;
+        /* X is horizontal - 'left -100px' */
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    /* Animation finished */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
