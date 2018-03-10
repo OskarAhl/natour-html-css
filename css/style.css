@@ -68,6 +68,7 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .heading-primary {
@@ -75,6 +76,7 @@ body {
     text-transform: uppercase;
     /* Fix animation 'shake' */
     backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -140,4 +142,84 @@ body {
         opacity: 1;
         transform: translate(0);
     }
+}
+
+@keyframes moveInBottom {
+    /* Before animation starts */
+    0% {
+        opacity: 0;
+        /* X is horizontal - 'left -100px' */
+        transform: translateY(30px);
+    }
+    /* Animation finished */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+/* :link pseudoclass - style element under special states */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    /* inline ---> can use text align in parent (.text-box) */
+    display: inline-block;
+    border-radius: 100px;
+    /* transition has to be on initial state 
+        --> applied on new pseudostates (e.g. :hover ) */
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    /* 1: X-direction(0) 2: Y-direction(10px) 3:blur 4: color */
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+/* when click */
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(0,0,0,.2);
+}
+
+.btn-white {
+    background-color: #FFF;
+    color:#777;
+}
+
+/* insert content to page from CSS - won't appear in DOM */
+.btn::after {
+    /* content & display have to be present */
+    content: "";
+    display: inline-block;
+    /* height and width refers to element (e.g. btn) */
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    /* place behind element (.btn) - i.e. hidden */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all.4s;
+}
+
+.btn-white::after {
+    background-color: #FFF;
+}
+
+/* When we hover btn apply these ::after styles */
+.btn:hover::after {
+    /* scale - changes the size - 2 --> double */
+    transform: scaleX(1.2) scaleY(1.4);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 0.5s ease-out;
+    animation-delay: 0.75s;
+    /*  apply 0% animation before animation starts */
+    animation-fill-mode: backwards;
 }
