@@ -14,7 +14,7 @@
     // sidenote: opposite to ^ is $ (ends with)
     [class^="col"] {
         float: left;
-        background-color: orangered;
+        // background-color: orangered;
         // except last
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
