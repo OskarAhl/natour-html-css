@@ -196,10 +196,10 @@ body {
     &--white {
         background-color: $color-white;
         color:$color-grey-dark;
-    }
 
-    &--white::after {
-        background-color: $color-white;
+        &::after {
+            background-color: $color-white;
+        }
     }
 
     &--animated {
@@ -213,6 +213,13 @@ body {
         transform: translateY(-.3rem);
         /* 1: X-direction(0) 2: Y-direction(10px) 3:blur 4: color */
         box-shadow: 0 1rem 2rem rgba($color-black,.2);
+
+            /* When we hover btn apply these ::after styles */
+        &::after {
+            /* scale - changes the size - 2 --> double */
+            transform: scaleX(1.2) scaleY(1.4);
+            opacity: 0;
+        }
     }
 
     /* when click */
@@ -236,11 +243,5 @@ body {
         left: 0;
         z-index: -1;
         transition: all.4s;
-    }
-    /* When we hover btn apply these ::after styles */
-    &:hover::after {
-        /* scale - changes the size - 2 --> double */
-        transform: scaleX(1.2) scaleY(1.4);
-        opacity: 0;
     }
 }

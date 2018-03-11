@@ -133,8 +133,7 @@ body {
 .btn {
   /* :link pseudoclass - style element under special states */
   /* when click */
-  /* insert content to page from CSS - won't appear in DOM */
-  /* When we hover btn apply these ::after styles */ }
+  /* insert content to page from CSS - won't appear in DOM */ }
   .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
@@ -150,8 +149,8 @@ body {
   .btn--white {
     background-color: #FFF;
     color: #777; }
-  .btn--white::after {
-    background-color: #FFF; }
+    .btn--white::after {
+      background-color: #FFF; }
   .btn--animated {
     animation: moveInBottom 0.5s ease-out;
     animation-delay: 0.75s;
@@ -160,7 +159,12 @@ body {
   .btn:hover {
     transform: translateY(-0.3rem);
     /* 1: X-direction(0) 2: Y-direction(10px) 3:blur 4: color */
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    /* When we hover btn apply these ::after styles */ }
+    .btn:hover::after {
+      /* scale - changes the size - 2 --> double */
+      transform: scaleX(1.2) scaleY(1.4);
+      opacity: 0; }
   .btn:active {
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2); }
@@ -178,7 +182,3 @@ body {
     left: 0;
     z-index: -1;
     transition: all 0.4s; }
-  .btn:hover::after {
-    /* scale - changes the size - 2 --> double */
-    transform: scaleX(1.2) scaleY(1.4);
-    opacity: 0; }
