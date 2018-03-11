@@ -4,6 +4,8 @@ $color-primary-dark: #28b485;
 
 $color-grey-dark: #777;
 $color-white: #FFF;
+$color-black: #000;
+
 /* ==== GENERAL ====  */
 /*  - Use relative rem instead of absolute px   
     --> Why? 1. Easy way to change ALL measurements with 1 simple setting 
@@ -191,13 +193,13 @@ body {
 .btn:hover {
     transform: translateY(-.3rem);
     /* 1: X-direction(0) 2: Y-direction(10px) 3:blur 4: color */
-    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+    box-shadow: 0 1rem 2rem rgba($color-black,.2);
 }
 
 /* when click */
 .btn:active {
     transform: translateY(-.1rem);
-    box-shadow: 0 .5rem 2rem rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 2rem rgba($color-black,.2);
 }
 
 .btn--white {
