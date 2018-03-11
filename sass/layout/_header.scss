@@ -1,0 +1,43 @@
+.header {
+    /* this box - 95 % of viewport height */
+    height: 95vh;
+    /* 'two' background images - gradient first - then pic */
+    background-image: 
+        linear-gradient(
+        to right bottom, rgba( $color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)), 
+    url('../img/hero.jpg');
+    /* whatever width of viewport - always fit element of box */
+    background-size: cover;
+    /* 'top' of image always focused as we change screen size */
+    background-position: top;
+    position: relative;
+    /* clip out path where you want the element content to be visible
+        - i.e. 'make triangle at bottom' - set all 4 cordinates for element
+    */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    &__logo-box {
+        position: absolute;
+        /* Top and left based on parent element - with position relative 
+            - on .header
+        */
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+
+    &__text-box {
+        /* old school centering */
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        /* sets 'center' of box as starting point for left:50% & top:40% */
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+}

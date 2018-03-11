@@ -1,0 +1,30 @@
+/* ==== GENERAL ====  */
+/*  - Use relative rem instead of absolute px   
+    --> Why? 1. Easy way to change ALL measurements with 1 simple setting 
+                - e.g. if when hit breakpoint for tablet -- decrease all measurements (change one global setting)
+*/
+
+/* Reset default browser CSS   */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /* borders and paddings are not added to width and height of box - 
+    * i.e. padding does not cause width to increase
+    */
+    box-sizing: inherit;
+}
+
+/* set rem in root (html) */
+html {
+    /* why 62.5%? default size is 16px 62.5 % of 16 is 10 =>  1 rem is now = 10px
+        - some user changes default font size (e.g. bad eyes)
+        ---> if you use px here instead of % the users default font size won"t apply
+    */
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}
