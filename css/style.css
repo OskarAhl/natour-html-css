@@ -136,6 +136,10 @@ body {
 .u-margin-bottom-big {
   margin-bottom: 8rem; }
 
+.card {
+  background-color: orangered;
+  height: 50rem; }
+
 .feature-box {
   background-color: rgba(255, 255, 255, 0.8);
   font-size: 1.5rem;
@@ -324,3 +328,8 @@ body {
   transform: skewY(-7deg); }
   .section-features > * {
     transform: skewY(7deg); }
+
+.section-tours {
+  background-color: #f7f7f7;
+  padding: 20rem 0 50rem 0;
+  margin-top: -10rem; }
