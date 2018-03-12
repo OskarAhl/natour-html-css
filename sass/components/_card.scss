@@ -2,20 +2,37 @@
     // makes it seem like the card is coming out to you
     perspective: 150rem;
     -moz-perspective: 150rem;
+    position: relative;
+    // position absolute resets height - clearfix not applicable (only floats)
+    height: 50rem;
 
-    
     &__side {
-        background-color: orangered;
         height: 50rem;
-        transition: all .8s;
-        
+        transition: all .8s ease;
+
+        // position cards on top of each other
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        // hides 'backside' of element
+        backface-visibility: hidden;
+
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
         &--front {
-            background-color: orangered;
+            background-color: $color-white;
         }
     
         &--back {
             background-color: green;
             transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
         }
     }
 
