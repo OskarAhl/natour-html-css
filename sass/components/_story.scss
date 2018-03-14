@@ -1,0 +1,38 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: $color-white;
+    border-radius: 3px;
+    padding: 6rem;
+    // offset transform - translate of __shape
+    padding-left: 9rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+
+    // round image
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        // use float left to have rest of content float around
+        float: left;
+        // make the outside shape round 1: radius 2: center horizontally 3: center vertically
+        // --> Element needs to be floated & defined dimensions (height and width)
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        // make content to be a circle
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        // best way to move floated element - transform + translate
+        transform: translateX(-3rem) skewX(12deg);
+    }
+
+    &__img {
+        height: 100%;
+    }
+
+    &__text{
+        transform: skewX(12deg);
+    }
+}
