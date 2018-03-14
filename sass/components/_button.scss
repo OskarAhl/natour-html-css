@@ -1,19 +1,24 @@
 
 .btn {
+    &,
     /* :link pseudoclass - style element under special states */
     &:link,
     &:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    /* inline ---> can use text align in parent (.text-box) */
-    display: inline-block;
-    border-radius: 10rem;
-    /* transition has to be on initial state 
-        --> applied on new pseudostates (e.g. :hover ) */
-    transition: all .2s;
-    position: relative;
-    font-size: $default-font-size;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        /* inline ---> can use text align in parent (.text-box) */
+        display: inline-block;
+        border-radius: 10rem;
+        /* transition has to be on initial state 
+            --> applied on new pseudostates (e.g. :hover ) */
+        transition: all .2s;
+        position: relative;
+        font-size: $default-font-size;
+
+        //for button element
+        border: none;
+        cursor: pointer;
     }
 
     &--white {
@@ -55,7 +60,9 @@
     }
 
     /* when click */
-    &:active {
+    &:active,
+    &:focus {
+            outline: none;
             transform: translateY(-.1rem);
             box-shadow: 0 .5rem 2rem rgba($color-black,.2);
     }
