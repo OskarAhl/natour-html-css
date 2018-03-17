@@ -41,10 +41,21 @@
     &__text {
         font-size: 1.4rem;
         margin-bottom: 4rem;
+
         // for text creates 2 columns by default
+        -moz-column-count: 2;
+        -moz-column-gap: 4rem;
+        // middle border between text columns
+        -moz-column-rule: 1px solid $color-grey-light-2;
+
         column-count: 2;
         column-gap: 4rem;
-        // middle border between text columns
-        column-rule: 1px solid $color-grey-dark-2;
+        column-rule: 1px solid $color-grey-light-2;
+
+        // in index.html lang="eng" must be specified
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
     }
 }
