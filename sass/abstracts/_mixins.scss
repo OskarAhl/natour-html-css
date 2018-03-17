@@ -12,3 +12,31 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+// ============== Media Query Manager =====================
+
+/*
+0 - 600px       Phone
+600 - 900px     Tablet portrait
+900 - 1200px    Tablet landscape
+1200 - 1800     Normal style applies (outside media queries)
+1800++          Big desktop
+*/
+
+// pass in breakpoint as name argument
+/*
+$breakpoint arguments:
+    - phone
+    - tab-port
+    - tab-land
+    - big-desktop
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 600px) {
+            // @content => pass entire block of code into mixin
+            // to use: @include respond phone {... styles} 
+            @content     
+        };
+    }
+}
