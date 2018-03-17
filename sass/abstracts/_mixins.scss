@@ -30,6 +30,8 @@ $breakpoint arguments:
     - tab-port
     - tab-land
     - big-desktop
+
+ Implementation order: Base + typography > general layout > grid > page layout > components
 */
 // Ems are best option for media querys: 1 em = 16px
 @mixin respond($breakpoint) {
