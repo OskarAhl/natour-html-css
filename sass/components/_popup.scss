@@ -9,7 +9,6 @@
     
     &__content {
         @include center-with-transform;
-
         width: 75%;
         background-color: $color-white;
         box-shadow: 0 2rem 4rem rgba($color-black, .2);
@@ -20,6 +19,20 @@
         transform: translate(-50%, -50%) scale(.25);
         // .2s = delay - first allow black background ---> then fade in popup
         transition: all .4s .2s;
+
+        @include respond(tab-land) {
+            margin: -2rem 0 10rem 0;
+            width: 90%;        
+        }
+
+
+        @include respond(tab-port) {
+            margin: -2rem 0 10rem 0;
+        }
+
+        @include respond(phone) {
+            margin: 0rem 0 2rem 0;
+        }
     }
     // display table (parent)
     // display: table-cell (children)
@@ -27,6 +40,10 @@
     &__left {
         width: 33.333333%;
         display: table-cell;
+        
+        @include respond(tab-port) {
+            display: none;
+        }
     }
 
     &__right {
