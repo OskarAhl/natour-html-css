@@ -17,7 +17,8 @@
         width: 100%;
 
         // hides 'backside' of element
-        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;        
 
         border-radius: 3px;
         // image overflows card in corners 

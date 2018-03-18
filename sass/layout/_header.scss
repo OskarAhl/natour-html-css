@@ -1,6 +1,6 @@
 .header {
     /* this box - 95 % of viewport height */
-    height: 95vh;
+    height: 80vh;
     /* 'two' background images - gradient first - then pic */
     background-image: 
         linear-gradient(
@@ -12,18 +12,25 @@
     /* 'top' of image always focused as we change screen size */
     background-position: top;
     position: relative;
-    /* clip out path where you want the element content to be visible
-        - i.e. 'make triangle at bottom' - set all 4 cordinates for element
-    */
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    @supports(clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        /* clip out path where you want the element content to be visible
+            - i.e. 'make triangle at bottom' - set all 4 cordinates for element
+        */
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        height: 95vh;
+    }
 
     // Responsive images in CSS - media queries for different images
     // Can write media queries for resolution
     // 192dpi - high res retina screen
     // , works as ||
-    @media (min-resolution: 192dpi) and (min-width: 37.5em),
-    (min-width: 125em) {
+    @media 
+        (min-resolution: 192dpi) and (min-width: 37.5em),
+        (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+        (min-width: 125em) 
+    {
         background-image: 
         linear-gradient(
         to right bottom, rgba( $color-primary-light, 0.8), 
