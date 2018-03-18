@@ -36,19 +36,19 @@ $breakpoint arguments:
 // Ems are best option for media querys: 1 em = 16px
 @mixin respond($breakpoint) {
     @if $breakpoint == phone {
-        @media (max-width: 37.5em) { // 600px
+        @media only screen and (max-width: 37.5em) { // 600px
             // @content => pass entire block of code into mixin
             // to use: @include respond phone {... styles} 
             @content     
         };
     }
     @if $breakpoint == tab-port { //900px
-        @media (max-width: 56.25em) { @content };
+        @media only screen and (max-width: 56.25em) { @content };
     }
     @if $breakpoint == tab-land { //1200px
-        @media (max-width: 75em) { @content };
+        @media only screen and (max-width: 75em) { @content };
     }
     @if $breakpoint == big-desktop { //18000px
-        @media (min-width: 112.5em) { @content };
+        @media only screen and (min-width: 112.5em) { @content };
     }
 }

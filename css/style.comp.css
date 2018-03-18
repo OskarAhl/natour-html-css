@@ -94,6 +94,10 @@ body {
     body {
       padding: 0; } }
 
+::selection {
+  background-color: #55c57a;
+  color: #FFF; }
+
 /* Why use body for global font ? 
     fonts are inherited by ALL child elements of body
  */

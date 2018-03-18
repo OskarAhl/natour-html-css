@@ -4,7 +4,8 @@
   "description": "HTML - SCSS showcase",
   "main": "index.js",
   "scripts": {
-    "watch:sass": "nodemon -e scss -x \"npm run compile:sass\"",
+    "watch:sass": "nodemon -e scss -x \"npm run dev:sass\"",
+    "dev:sass": "node-sass sass/main.scss css/style.css",
     "devserver": "live-server",
     "start": "npm-run-all --parallel devserver watch:sass",
     "compile:sass": "node-sass sass/main.scss css/style.comp.css",
